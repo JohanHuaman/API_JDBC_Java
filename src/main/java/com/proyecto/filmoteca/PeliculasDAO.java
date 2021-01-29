@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PeliculasDAO {
     
@@ -16,8 +14,8 @@ public class PeliculasDAO {
             
     //INSERTAR PELICULA
     public static void insertarPeliculaDB(Peliculas pelicula){
-        Connection conn;
-        PreparedStatement ps;
+        Connection conn = null;
+        PreparedStatement ps = null;
         
         try{
             conn = Conexion.getConnection();
@@ -36,13 +34,21 @@ public class PeliculasDAO {
             
         }catch(SQLException e){
             System.out.println(e);
+        }finally{
+            try {
+                Conexion.close(ps);
+                Conexion.close(conn);
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
         }
     }
     //LISTAR PELICULA
     public static void listarPeliculasDB(){
-        Connection conn;
-        PreparedStatement ps;
-        ResultSet rs;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         
         try{
             conn = Conexion.getConnection();
@@ -62,13 +68,21 @@ public class PeliculasDAO {
         }catch(SQLException e){
             System.out.println("No se pudieron listar las peliculas");
             System.out.println(e);
+        }finally{
+            try {
+                Conexion.close(rs);
+                Conexion.close(ps);
+                Conexion.close(conn);
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
         }
     }
     
     //ACTUALIZAR PELICULA
     public static void actualizarPeliculaDB(Peliculas pelicula){
-        Connection conn;
-        PreparedStatement ps;
+        Connection conn = null;
+        PreparedStatement ps = null;
         
         try{
             conn = Conexion.getConnection();
@@ -89,13 +103,21 @@ public class PeliculasDAO {
         }catch(SQLException e){
             System.out.println("El libro se actualizó");
             System.out.println(e);
+        }finally{
+            try {
+                Conexion.close(ps);
+                Conexion.close(conn);
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
         }
     }
     
     //BORRAR PELICULA
     public static void borrarPeliculaDB(int id){
-        Connection conn;
-        PreparedStatement ps;
+        Connection conn = null;
+        PreparedStatement ps = null;
         
         try {
             conn = Conexion.getConnection();
@@ -108,6 +130,13 @@ public class PeliculasDAO {
         } catch (SQLException ex) {
             System.out.println("No se pudo borrar la pelicula");
             System.out.println(ex);
+        }finally{
+            try {
+                Conexion.close(ps);
+                Conexion.close(conn);
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
         }
     }
 }
