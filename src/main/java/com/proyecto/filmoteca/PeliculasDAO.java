@@ -2,6 +2,7 @@ package com.proyecto.filmoteca;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PeliculasDAO {
@@ -36,6 +37,31 @@ public class PeliculasDAO {
         }
     }
     //LISTAR PELICULA
+    public static void listarPeliculasDB(){
+        Connection conn;
+        PreparedStatement ps;
+        ResultSet rs;
+        
+        try{
+            conn = Conexion.getConnection();
+            ps = conn.prepareStatement(SELECT);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                System.out.println("ID: " +rs.getInt("id"));
+                System.out.println("Titulo: " +rs.getString("titulo"));
+                System.out.println("Director: " +rs.getString("director"));
+                System.out.println("Genero: " +rs.getString("genero"));
+                System.out.println("Año: " +rs.getString("año"));
+                System.out.println("Idioma: " +rs.getString("idioma"));
+                System.out.println("Duración: " +rs.getInt("duracion")+ " mins.");
+                System.out.println("");
+            }
+        }catch(SQLException e){
+            System.out.println("No se pudieron listar las peliculas");
+            System.out.println(e);
+        }
+    }
     
     //ACTUALIZAR PELICULA
     public static void actualizarPeliculaDB(Peliculas pelicula){

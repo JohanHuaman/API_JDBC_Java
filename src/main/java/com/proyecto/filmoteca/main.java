@@ -27,7 +27,7 @@ public class main {
                     PeliculasService.insertarPelicula();
                     break;
                 case 2:
-                    //LISTAR
+                    PeliculasService.listarPeliculas();
                     break;
                 case 3:
                     PeliculasService.actualizarPelicula();

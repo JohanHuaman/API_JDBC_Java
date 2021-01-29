@@ -29,6 +29,10 @@ public class PeliculasService {
 
         PeliculasDAO.insertarPeliculaDB(nuevaPelicula);
     }
+    
+    public static void listarPeliculas(){
+        PeliculasDAO.listarPeliculasDB();
+    }
 
     public static void actualizarPelicula() {
         Scanner sc = new Scanner(System.in);
