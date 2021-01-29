@@ -38,6 +38,30 @@ public class PeliculasDAO {
     //LISTAR PELICULA
     
     //ACTUALIZAR PELICULA
-    
+    public static void actualizarPeliculaDB(Peliculas pelicula){
+        Connection conn;
+        PreparedStatement ps;
+        
+        try{
+            conn = Conexion.getConnection();
+            ps = conn.prepareStatement(UPDATE);
+            
+            ps.setString(1, pelicula.getTitulo());
+            ps.setString(2, pelicula.getDirector());
+            ps.setString(3, pelicula.getGenero());
+            ps.setString(4, pelicula.getAño());
+            ps.setString(5, pelicula.getIdioma());
+            ps.setInt(6, pelicula.getDuracion());
+            ps.setInt(7, pelicula.getId());
+            
+            ps.executeUpdate();
+            
+            System.out.println("Libro actualizado correctamente");
+            
+        }catch(SQLException e){
+            System.out.println("El libro se actualizó");
+            System.out.println(e);
+        }
+    }
     //BORRAR PELICULA
 }

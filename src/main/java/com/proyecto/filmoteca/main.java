@@ -30,7 +30,7 @@ public class main {
                     //LISTAR
                     break;
                 case 3:
-                    //ACTUALIZAR
+                    PeliculasService.actualizarPelicula();
                     break;
                 case 4:
                     //BORRAR
