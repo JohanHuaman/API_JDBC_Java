@@ -33,7 +33,7 @@ public class main {
                     PeliculasService.actualizarPelicula();
                     break;
                 case 4:
-                    //BORRAR
+                    PeliculasService.borrarPelicula();
                     break;
                 case 0:
                     System.out.println("Nos vemos!");

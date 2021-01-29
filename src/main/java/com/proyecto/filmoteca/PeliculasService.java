@@ -33,6 +33,15 @@ public class PeliculasService {
     public static void listarPeliculas(){
         PeliculasDAO.listarPeliculasDB();
     }
+    
+    public static void borrarPelicula(){
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Ingrese el ID de la pelicula a elminar");
+        int i = sc.nextInt();
+        
+        PeliculasDAO.borrarPeliculaDB(i);
+    }
 
     public static void actualizarPelicula() {
         Scanner sc = new Scanner(System.in);
@@ -62,4 +71,5 @@ public class PeliculasService {
         
         PeliculasDAO.actualizarPeliculaDB(peliculaActualizada);
     }
+    
 }

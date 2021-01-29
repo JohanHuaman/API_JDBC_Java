@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PeliculasDAO {
     
@@ -89,5 +91,23 @@ public class PeliculasDAO {
             System.out.println(e);
         }
     }
+    
     //BORRAR PELICULA
+    public static void borrarPeliculaDB(int id){
+        Connection conn;
+        PreparedStatement ps;
+        
+        try {
+            conn = Conexion.getConnection();
+            ps = conn.prepareStatement(DELETE);
+            
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            System.out.println("La pelicula ha sido borrada");
+            
+        } catch (SQLException ex) {
+            System.out.println("No se pudo borrar la pelicula");
+            System.out.println(ex);
+        }
+    }
 }
