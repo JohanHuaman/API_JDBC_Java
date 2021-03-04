@@ -1,5 +1,7 @@
-package com.proyecto.filmoteca;
+package com.proyecto.filmoteca.datos;
 
+import com.proyecto.filmoteca.domain.Peliculas;
+import com.proyecto.filmoteca.datos.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

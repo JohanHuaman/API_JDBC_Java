@@ -1,5 +1,6 @@
 package com.proyecto.filmoteca;
 
+import com.proyecto.filmoteca.domain.PeliculasService;
 import java.util.Scanner;
 
 public class main {

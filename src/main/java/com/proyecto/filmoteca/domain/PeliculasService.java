@@ -1,5 +1,6 @@
-package com.proyecto.filmoteca;
+package com.proyecto.filmoteca.domain;
 
+import com.proyecto.filmoteca.datos.PeliculasDAO;
 import java.util.Scanner;
 
 public class PeliculasService {

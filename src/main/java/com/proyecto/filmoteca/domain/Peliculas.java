@@ -1,4 +1,4 @@
-package com.proyecto.filmoteca;
+package com.proyecto.filmoteca.domain;
 
 public class Peliculas {
     

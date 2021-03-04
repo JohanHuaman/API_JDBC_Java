@@ -1,4 +1,4 @@
-package com.proyecto.filmoteca;
+package com.proyecto.filmoteca.datos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
